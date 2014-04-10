@@ -9,7 +9,7 @@
 (function( $ ) {
     $.fn.dynCall = function(s) {
 	var fn = $.trim($(this).attr(s));
-        if(!fn) $.dynFn('call',s); else $.dynFn('call',fn);
+        if(!fn) $.dynFn('call',s,arg); else $.dynFn('call',fn,arg);
     };
 }( jQuery ));
 
