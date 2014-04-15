@@ -7,8 +7,8 @@
  */
 
 (function( $ ) {
-    $.fn.dynCall = function(s) {
-	var fn = $.trim($(this).attr(s));
+    $.fn.dynCall = function(s,arg) {
+    	var fn = $.trim($(this).attr(s));
         if(!fn) $.dynFn('call',s,arg); else $.dynFn('call',fn,arg);
     };
 }( jQuery ));
@@ -30,8 +30,8 @@ jQuery.dynFn = function(mode,fn,arg){
 		return Function.constructor.apply(null, argNames);
 	}
 	
-	function dynCallFn(s){
-		return dynGetFn(s).apply(null,Array.prototype.slice.call(arguments, 1));
+	function dynCallFn(s,arg){
+		return dynGetFn(s).apply(null,arg);
 	}
 	
 	function dynCallCustomFn(s, arg){
